@@ -16,8 +16,9 @@ function generateQuote(){
       var author = data.author;
       if (author == ""){
          author = "Someone";
-      }
+      }      
       document.querySelector("figcaption").innerHTML = author;
+      slideQuoteIn();
    })
    .catch(function(err) {
       console.log(err); 
@@ -57,3 +58,11 @@ const handleScrollAnimation = () => {
 window.addEventListener('scroll', () => {
    handleScrollAnimation();
 })
+
+function slideQuoteIn(){
+   quote = document.querySelector("figure");   
+   quote.classList.add("w3-animate-right");
+   setTimeout(() => {
+      quote.classList.remove("w3-animate-right")
+   }, 1000);
+}
